@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.tutorialsbykaupenjoe.tutorialmod.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+  ],
+  "client": [
+    "TutorialMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
