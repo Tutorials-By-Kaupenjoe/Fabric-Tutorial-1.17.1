@@ -1,3 +1,5 @@
 {
-  "item.tutorialmod.ruby": "Ruby"
+  "item.tutorialmod.ruby": "Ruby",
+
+  "block.tutorialmod.ruby_ore": "Ruby Ore"
 }
