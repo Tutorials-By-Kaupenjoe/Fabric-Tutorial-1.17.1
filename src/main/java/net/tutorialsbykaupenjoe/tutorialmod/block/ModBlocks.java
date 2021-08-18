@@ -11,6 +11,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
+import net.tutorialsbykaupenjoe.tutorialmod.item.ModItemGroup;
 
 public class ModBlocks {
 
@@ -26,7 +27,7 @@ public class ModBlocks {
 
     private static Item registerBlockItem(String name, Block block) {
         return Registry.register(Registry.ITEM, new Identifier(TutorialMod.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings().group(ItemGroup.MISC)));
+                new BlockItem(block, new FabricItemSettings().group(ModItemGroup.RUBY)));
     }
 
     public static void registerModBlocks() {
