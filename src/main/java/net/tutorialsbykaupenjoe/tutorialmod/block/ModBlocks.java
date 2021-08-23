@@ -19,6 +19,10 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.STONE).strength(4.0f)
                     .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
 
+    public static final Block RUBY_BLOCK = registerBlock("ruby_block",
+            new Block(FabricBlockSettings.of(Material.STONE).strength(6f)
+                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
