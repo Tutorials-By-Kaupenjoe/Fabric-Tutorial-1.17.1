@@ -3,6 +3,7 @@ package net.tutorialsbykaupenjoe.tutorialmod;
 import net.fabricmc.api.ModInitializer;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
+import net.tutorialsbykaupenjoe.tutorialmod.registries.ModRegistries;
 
 public class TutorialMod implements ModInitializer {
 
@@ -16,6 +17,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+		ModRegistries.registerModFuels();
 
 		System.out.println("Hello Fabric world!");
 	}

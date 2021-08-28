@@ -21,6 +21,9 @@ public class ModItems {
     public static final Item DOWSING_ROD = registerItem("dowsing_rod",
             new DowsingRodItem(new FabricItemSettings().group(ModItemGroup.RUBY).maxDamage(10)));
 
+    public static final Item IRON_WOOL = registerItem("iron_wool",
+            new Item(new FabricItemSettings().group(ModItemGroup.RUBY)));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(TutorialMod.MOD_ID, name), item);
