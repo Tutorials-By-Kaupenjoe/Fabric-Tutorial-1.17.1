@@ -5,6 +5,7 @@
 
   "block.tutorialmod.ruby_ore": "Ruby Ore",
   "block.tutorialmod.ruby_block": "Ruby Block",
+  "block.tutorialmod.status_block": "Status Block",
 
   "itemGroup.tutorialmod.ruby": "Ruby Mod"
 }
