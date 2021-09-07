@@ -8,5 +8,8 @@
   "block.tutorialmod.ruby_block": "Ruby Block",
   "block.tutorialmod.status_block": "Status Block",
 
-  "itemGroup.tutorialmod.ruby": "Ruby Mod"
+  "itemGroup.tutorialmod.ruby": "Ruby Mod",
+
+  "tooltip.tutorialmod.dowsing_rod": "Hold §eSHIFT§r for more Information!",
+  "tooltip.tutorialmod.dowsing_rod_shift": "Click a Block and discover valuables down below!"
 }
