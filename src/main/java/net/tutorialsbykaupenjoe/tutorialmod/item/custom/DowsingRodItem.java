@@ -14,6 +14,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.tutorialsbykaupenjoe.tutorialmod.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -64,8 +65,7 @@ public class DowsingRodItem extends Item {
     }
 
     private boolean isValuableBlock(Block block) {
-        return block == Blocks.COAL_ORE || block == Blocks.COPPER_ORE
-                || block == Blocks.DIAMOND_ORE || block == Blocks.IRON_ORE;
+        return block.getDefaultState().isIn(ModTags.Blocks.VALUABLE_BLOCKS);
     }
 
     private void outputValuableCoordinates(Block blockFound, BlockPos pos, PlayerEntity player) {
