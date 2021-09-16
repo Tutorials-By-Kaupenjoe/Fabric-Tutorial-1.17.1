@@ -9,6 +9,8 @@
   "block.tutorialmod.status_block": "Status Block",
   "block.tutorialmod.ruby_stairs": "Ruby Stairs",
   "block.tutorialmod.ruby_slab": "Ruby Slab",
+  "block.tutorialmod.ruby_fence": "Ruby Fence",
+  "block.tutorialmod.ruby_fence_gate": "Ruby Fence Gate",
 
   "itemGroup.tutorialmod.ruby": "Ruby Mod",
 
