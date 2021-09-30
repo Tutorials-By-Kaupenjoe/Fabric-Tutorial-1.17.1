@@ -1,6 +1,7 @@
 package net.tutorialsbykaupenjoe.tutorialmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -40,6 +41,19 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.RUBY)));
     public static final Item RUBY_HOE = registerItem("ruby_hoe",
             new ModHoeItem(ModToolMaterial.RUBY, 0, 0f,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+
+    public static final Item RUBY_HELMET = registerItem("ruby_helmet",
+            new ArmorItem(ModArmorMaterial.RUBY, EquipmentSlot.HEAD,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+    public static final Item RUBY_CHESTPLATE = registerItem("ruby_chestplate",
+            new ArmorItem(ModArmorMaterial.RUBY, EquipmentSlot.CHEST,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+    public static final Item RUBY_LEGGINGS = registerItem("ruby_leggings",
+            new ArmorItem(ModArmorMaterial.RUBY, EquipmentSlot.LEGS,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+    public static final Item RUBY_BOOTS = registerItem("ruby_boots",
+            new ArmorItem(ModArmorMaterial.RUBY, EquipmentSlot.FEET,
                     new FabricItemSettings().group(ModItemGroup.RUBY)));
 
 
