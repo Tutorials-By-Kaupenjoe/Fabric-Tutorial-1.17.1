@@ -1,13 +1,14 @@
 package net.tutorialsbykaupenjoe.tutorialmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.DowsingRodItem;
+import net.tutorialsbykaupenjoe.tutorialmod.item.custom.ModAxeItem;
+import net.tutorialsbykaupenjoe.tutorialmod.item.custom.ModHoeItem;
+import net.tutorialsbykaupenjoe.tutorialmod.item.custom.ModPickaxeItem;
 
 public class ModItems {
 
@@ -23,6 +24,23 @@ public class ModItems {
 
     public static final Item IRON_WOOL = registerItem("iron_wool",
             new Item(new FabricItemSettings().group(ModItemGroup.RUBY)));
+
+    public static final Item RUBY_SWORD = registerItem("ruby_sword",
+            new SwordItem(ModToolMaterial.RUBY, 2, 1f,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+    public static final Item RUBY_SHOVEL = registerItem("ruby_shovel",
+            new ShovelItem(ModToolMaterial.RUBY, 0, 1f,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+
+    public static final Item RUBY_PICKAXE = registerItem("ruby_pickaxe",
+            new ModPickaxeItem(ModToolMaterial.RUBY, 0, 1f,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+    public static final Item RUBY_AXE = registerItem("ruby_axe",
+            new ModAxeItem(ModToolMaterial.RUBY, 4, -1f,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+    public static final Item RUBY_HOE = registerItem("ruby_hoe",
+            new ModHoeItem(ModToolMaterial.RUBY, 0, 0f,
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
 
 
     private static Item registerItem(String name, Item item) {
