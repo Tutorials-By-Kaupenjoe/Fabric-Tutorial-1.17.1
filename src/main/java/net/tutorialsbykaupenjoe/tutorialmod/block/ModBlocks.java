@@ -10,10 +10,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
-import net.tutorialsbykaupenjoe.tutorialmod.block.custom.ModPressurePlateBlock;
-import net.tutorialsbykaupenjoe.tutorialmod.block.custom.ModStairsBlock;
-import net.tutorialsbykaupenjoe.tutorialmod.block.custom.ModStoneButtonBlock;
-import net.tutorialsbykaupenjoe.tutorialmod.block.custom.StatusBlock;
+import net.tutorialsbykaupenjoe.tutorialmod.block.custom.*;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItemGroup;
 
 public class ModBlocks {
@@ -56,6 +53,15 @@ public class ModBlocks {
             new ModPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
                     FabricBlockSettings.of(Material.STONE).strength(6f)
                     .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+
+
+    public static final Block RUBY_DOOR = registerBlock("ruby_door",
+            new ModDoorBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
+                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().nonOpaque()));
+
+    public static final Block RUBY_TRAPDOOR = registerBlock("ruby_trapdoor",
+            new ModTrapdoorBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
+                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().nonOpaque()));
 
 
     private static Block registerBlock(String name, Block block){

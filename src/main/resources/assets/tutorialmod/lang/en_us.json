@@ -13,6 +13,8 @@
   "block.tutorialmod.ruby_fence_gate": "Ruby Fence Gate",
   "block.tutorialmod.ruby_button": "Ruby Button",
   "block.tutorialmod.ruby_pressure_plate": "Ruby Pressure Plate",
+  "block.tutorialmod.ruby_door": "Ruby Door",
+  "block.tutorialmod.ruby_trapdoor": "Ruby Trapdoor",
 
   "itemGroup.tutorialmod.ruby": "Ruby Mod",
 
