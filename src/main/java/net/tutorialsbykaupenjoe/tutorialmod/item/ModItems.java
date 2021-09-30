@@ -6,10 +6,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
-import net.tutorialsbykaupenjoe.tutorialmod.item.custom.DowsingRodItem;
-import net.tutorialsbykaupenjoe.tutorialmod.item.custom.ModAxeItem;
-import net.tutorialsbykaupenjoe.tutorialmod.item.custom.ModHoeItem;
-import net.tutorialsbykaupenjoe.tutorialmod.item.custom.ModPickaxeItem;
+import net.tutorialsbykaupenjoe.tutorialmod.item.custom.*;
 
 public class ModItems {
 
@@ -44,7 +41,7 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.RUBY)));
 
     public static final Item RUBY_HELMET = registerItem("ruby_helmet",
-            new ArmorItem(ModArmorMaterial.RUBY, EquipmentSlot.HEAD,
+            new ModArmorItem(ModArmorMaterial.RUBY, EquipmentSlot.HEAD,
                     new FabricItemSettings().group(ModItemGroup.RUBY)));
     public static final Item RUBY_CHESTPLATE = registerItem("ruby_chestplate",
             new ArmorItem(ModArmorMaterial.RUBY, EquipmentSlot.CHEST,
