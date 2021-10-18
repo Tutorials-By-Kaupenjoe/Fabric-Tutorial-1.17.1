@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "clicked=false": { "model": "tutorialmod:block/test_block_normal" },
+    "clicked=true": { "model": "tutorialmod:block/test_block_clicked" }
+  }
+}

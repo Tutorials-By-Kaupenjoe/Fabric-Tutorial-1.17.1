@@ -63,6 +63,10 @@ public class ModBlocks {
             new ModTrapdoorBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
                     .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().nonOpaque()));
 
+    public static final Block TEST_BLOCK = registerBlock("test_block",
+            new TestBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
+                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
