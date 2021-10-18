@@ -53,6 +53,10 @@ public class ModItems {
             new ArmorItem(ModArmorMaterial.RUBY, EquipmentSlot.FEET,
                     new FabricItemSettings().group(ModItemGroup.RUBY)));
 
+    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor",
+            new HorseArmorItem(7, "ruby",
+                    new FabricItemSettings().group(ModItemGroup.RUBY)));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(TutorialMod.MOD_ID, name), item);
