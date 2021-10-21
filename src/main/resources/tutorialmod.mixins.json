@@ -4,6 +4,7 @@
   "package": "net.tutorialsbykaupenjoe.tutorialmod.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "ModEntityDataSaver"
   ],
   "client": [
     "TutorialMixin"
