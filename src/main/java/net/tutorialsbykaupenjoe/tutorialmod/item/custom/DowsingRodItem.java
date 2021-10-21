@@ -8,12 +8,14 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,6 +40,11 @@ public class DowsingRodItem extends Item {
                 if(isValuableBlock(blockBelow)) {
                     outputValuableCoordinates(blockBelow, positionClicked.add(0, -i, 0), player);
                     foundBlock = true;
+
+                    if(hasPlayerDataTablet(player)) {
+                        addNbtToDataTablet(player, positionClicked.add(0, -i, 0), blockBelow);
+                    }
+
                     break;
                 }
             }
@@ -50,6 +57,42 @@ public class DowsingRodItem extends Item {
                 (player) -> player.sendToolBreakStatus(player.getActiveHand()));
 
         return super.useOnBlock(context);
+    }
+
+    private void addNbtToDataTablet(PlayerEntity player, BlockPos pos, Block blockBelow) {
+        ItemStack dataTablet =
+                player.getInventory().getStack(getFirstInventoryIndex(player, ModItems.DATA_TABLET));
+        NbtCompound nbtData = new NbtCompound();
+        nbtData.putString("Last Found Ore", "Found " + blockBelow.asItem().getName().getString() + " at (" +
+                pos.getX() + ", "+ pos.getY() + ", "+ pos.getZ() + ")");
+
+        dataTablet.setNbt(nbtData);
+    }
+
+    private boolean hasPlayerDataTablet(PlayerEntity player) {
+        return hasPlayerStackInInventory(player, ModItems.DATA_TABLET);
+    }
+
+    private boolean hasPlayerStackInInventory(PlayerEntity player, Item item) {
+        for(int i = 0; i < player.getInventory().size(); i++) {
+            ItemStack currentStack = player.getInventory().getStack(i);
+            if (!currentStack.isEmpty() && currentStack.isItemEqual(new ItemStack(item))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private int getFirstInventoryIndex(PlayerEntity player, Item item) {
+        for(int i = 0; i < player.getInventory().size(); i++) {
+            ItemStack currentStack = player.getInventory().getStack(i);
+            if (!currentStack.isEmpty() && currentStack.isItemEqual(new ItemStack(item))) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override

@@ -57,6 +57,9 @@ public class ModItems {
             new HorseArmorItem(7, "ruby",
                     new FabricItemSettings().group(ModItemGroup.RUBY)));
 
+    public static final Item DATA_TABLET = registerItem("data_tablet",
+            new DataTabletItem(new FabricItemSettings().group(ModItemGroup.RUBY)));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(TutorialMod.MOD_ID, name), item);
