@@ -1,0 +1,3 @@
+SimpleConfig.java by magistermaks:
+https://github.com/magistermaks/fabric-simplelibs/blob/master/simple-config/SimpleConfig.java
+Distributed under MIT-License

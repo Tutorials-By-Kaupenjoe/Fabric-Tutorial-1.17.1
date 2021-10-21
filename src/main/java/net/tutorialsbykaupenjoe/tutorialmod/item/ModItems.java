@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
+import net.tutorialsbykaupenjoe.tutorialmod.config.ModConfigs;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.*;
 
 public class ModItems {
@@ -19,7 +20,8 @@ public class ModItems {
             .group(ModItemGroup.RUBY)));
 
     public static final Item DOWSING_ROD = registerItem("dowsing_rod",
-            new DowsingRodItem(new FabricItemSettings().group(ModItemGroup.RUBY).maxDamage(10)));
+            new DowsingRodItem(new FabricItemSettings().group(ModItemGroup.RUBY)
+                    .maxDamage(ModConfigs.MAX_DAMAGE_DOWSING_ROD)));
 
     public static final Item IRON_WOOL = registerItem("iron_wool",
             new Item(new FabricItemSettings().group(ModItemGroup.RUBY)));

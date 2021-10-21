@@ -2,6 +2,7 @@ package net.tutorialsbykaupenjoe.tutorialmod;
 
 import net.fabricmc.api.ModInitializer;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
+import net.tutorialsbykaupenjoe.tutorialmod.config.ModConfigs;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
 import net.tutorialsbykaupenjoe.tutorialmod.registries.ModRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModCommandRegister;
@@ -18,6 +19,7 @@ public class TutorialMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+		ModConfigs.registerConfigs();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
