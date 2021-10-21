@@ -6,6 +6,7 @@ import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
 import net.tutorialsbykaupenjoe.tutorialmod.registries.ModRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModCommandRegister;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModEventsRegister;
+import net.tutorialsbykaupenjoe.tutorialmod.util.ModLootTableModifiers;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModRenderHelper;
 
 public class TutorialMod implements ModInitializer {
@@ -26,6 +27,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModCommandRegister.registerCommands();
 		ModEventsRegister.registerEvents();
+
+		ModLootTableModifiers.modifyLootTables();
 
 		System.out.println("Hello Fabric world!");
 	}
