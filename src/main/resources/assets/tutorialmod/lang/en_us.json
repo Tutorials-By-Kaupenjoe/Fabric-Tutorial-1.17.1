@@ -14,6 +14,7 @@
   "item.tutorialmod.ruby_boots": "Ruby Boots",
   "item.tutorialmod.ruby_horse_armor": "Ruby Horse Armor",
   "item.tutorialmod.data_tablet": "Data Tablet",
+  "item.tutorialmod.pepper_seeds": "Pepper Seeds",
 
   "block.tutorialmod.ruby_ore": "Ruby Ore",
   "block.tutorialmod.ruby_block": "Ruby Block",
@@ -28,6 +29,7 @@
   "block.tutorialmod.ruby_trapdoor": "Ruby Trapdoor",
   "block.tutorialmod.test_block": "Test Block",
   "block.tutorialmod.dice_block": "Dice Block",
+  "block.tutorialmod.pepper_plant": "Pepper Plant",
 
   "itemGroup.tutorialmod.ruby": "Ruby Mod",
 

@@ -6,6 +6,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
+import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.*;
 
 public class ModItems {
@@ -59,6 +60,9 @@ public class ModItems {
 
     public static final Item DATA_TABLET = registerItem("data_tablet",
             new DataTabletItem(new FabricItemSettings().group(ModItemGroup.RUBY)));
+
+    public static final Item PEPPER_SEEDS = registerItem("pepper_seeds",
+            new AliasedBlockItem(ModBlocks.PEPPER_PLANT, new FabricItemSettings().group(ModItemGroup.RUBY)));
 
 
     private static Item registerItem(String name, Item item) {

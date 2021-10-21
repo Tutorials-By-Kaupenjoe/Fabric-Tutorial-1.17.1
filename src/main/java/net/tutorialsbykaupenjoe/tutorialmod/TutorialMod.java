@@ -1,12 +1,10 @@
 package net.tutorialsbykaupenjoe.tutorialmod;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.client.render.RenderLayer;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
 import net.tutorialsbykaupenjoe.tutorialmod.registries.ModRegistries;
+import net.tutorialsbykaupenjoe.tutorialmod.util.ModRenderHelper;
 
 public class TutorialMod implements ModInitializer {
 
@@ -22,9 +20,7 @@ public class TutorialMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		ModRegistries.registerModFuels();
-
-		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RUBY_TRAPDOOR, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RUBY_DOOR, RenderLayer.getCutout());
+		ModRenderHelper.setRenderLayers();
 
 		System.out.println("Hello Fabric world!");
 	}
