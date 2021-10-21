@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -74,6 +75,10 @@ public class ModBlocks {
 
     public static final Block PEPPER_PLANT = registerBlockWithoutBlockItem("pepper_plant",
             new PepperPlantBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque().noCollision()));
+
+    public static final Block BLUEBELLS = registerBlock("bluebells",
+            new FlowerBlock(StatusEffects.DOLPHINS_GRACE, 200,
+                    FabricBlockSettings.copy(Blocks.DANDELION).nonOpaque().noCollision()));
 
 
 
