@@ -8,11 +8,14 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.HeightmapDecoratorConfig;
+import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
@@ -20,6 +23,7 @@ import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 
 public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_TREE_KEY = registryKey("redwood");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BLUEBELLS_KEY = registryKey("bluebells");
 
     public static final ConfiguredFeature<?, ?> REDWOOD_TREE = register(Feature.TREE.configure(new TreeFeatureConfig.Builder(
             new SimpleBlockStateProvider(ModBlocks.REDWOOD_LOG.getDefaultState()),
@@ -31,7 +35,12 @@ public class ModConfiguredFeatures {
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING))
                     .spreadHorizontally().applyChance(3)), REDWOOD_TREE_KEY);
 
-
+    public static final ConfiguredFeature<?, ?> BLUEBELLS_CONFIG = register(Feature.FLOWER.configure(
+            new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(ModBlocks.BLUEBELLS.getDefaultState()),
+                    SimpleBlockPlacer.INSTANCE).tries(64).build())
+            .decorate(Decorator.SPREAD_32_ABOVE.configure(NopeDecoratorConfig.INSTANCE)
+                    .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING))
+                            .spreadHorizontally().repeat(4))), BLUEBELLS_KEY);
 
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registryKey(String name) {
