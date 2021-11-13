@@ -6,15 +6,15 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.Heightmap;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.HeightmapDecoratorConfig;
 import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
@@ -24,6 +24,7 @@ import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_TREE_KEY = registryKey("redwood");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BLUEBELLS_KEY = registryKey("bluebells");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_ORE_KEY = registryKey("ruby_ore");
 
     public static final ConfiguredFeature<?, ?> REDWOOD_TREE = register(Feature.TREE.configure(new TreeFeatureConfig.Builder(
             new SimpleBlockStateProvider(ModBlocks.REDWOOD_LOG.getDefaultState()),
@@ -41,6 +42,12 @@ public class ModConfiguredFeatures {
             .decorate(Decorator.SPREAD_32_ABOVE.configure(NopeDecoratorConfig.INSTANCE)
                     .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING))
                             .spreadHorizontally().repeat(4))), BLUEBELLS_KEY);
+
+    public static final ConfiguredFeature<?, ?> RUBY_ORE = register(Feature.ORE.configure(
+            new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.RUBY_ORE.getDefaultState(), 8))
+            .range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(2), YOffset.fixed(45))))
+            .spreadHorizontally().repeat(6), RUBY_ORE_KEY);
+
 
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registryKey(String name) {
