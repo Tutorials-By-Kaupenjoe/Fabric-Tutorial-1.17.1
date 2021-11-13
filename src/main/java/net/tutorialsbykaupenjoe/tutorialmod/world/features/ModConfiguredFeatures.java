@@ -22,17 +22,20 @@ import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 
 public class ModConfiguredFeatures {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_TREE_KEY = registryKey("redwood");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BLUEBELLS_KEY = registryKey("bluebells");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_ORE_KEY = registryKey("ruby_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_TREE_KEY = registerKey("redwood_spawn");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BLUEBELLS_KEY = registerKey("bluebells");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_ORE_KEY = registerKey("ruby_ore");
 
-    public static final ConfiguredFeature<?, ?> REDWOOD_TREE = register(Feature.TREE.configure(new TreeFeatureConfig.Builder(
-            new SimpleBlockStateProvider(ModBlocks.REDWOOD_LOG.getDefaultState()),
-            new StraightTrunkPlacer(8, 4, 3),
-            new SimpleBlockStateProvider(ModBlocks.REDWOOD_LEAVES.getDefaultState()),
-            new SimpleBlockStateProvider(ModBlocks.REDWOOD_SAPLING.getDefaultState()),
-            new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-            new TwoLayersFeatureSize(1, 0, 1)).build())
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> REDWOOD_TREE = register("redwood",
+            Feature.TREE.configure(new TreeFeatureConfig.Builder(
+                    new SimpleBlockStateProvider(ModBlocks.REDWOOD_LOG.getDefaultState()),
+                    new StraightTrunkPlacer(8, 4, 3),
+                    new SimpleBlockStateProvider(ModBlocks.REDWOOD_LEAVES.getDefaultState()),
+                    new SimpleBlockStateProvider(ModBlocks.REDWOOD_SAPLING.getDefaultState()),
+                    new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                    new TwoLayersFeatureSize(1, 0, 1)).build()));
+
+    public static final ConfiguredFeature<?, ?> REDWOOD_TREE_SPAWN = register(REDWOOD_TREE
             .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING))
                     .spreadHorizontally().applyChance(3)), REDWOOD_TREE_KEY);
 
@@ -50,8 +53,14 @@ public class ModConfiguredFeatures {
 
 
 
-    private static RegistryKey<ConfiguredFeature<?, ?>> registryKey(String name) {
+    private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(TutorialMod.MOD_ID, name));
+    }
+
+    private static ConfiguredFeature<TreeFeatureConfig, ?> register(String name,
+                                                                    ConfiguredFeature<TreeFeatureConfig, ?> configuredFeature) {
+        return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(TutorialMod.MOD_ID, name),
+                configuredFeature);
     }
 
     private static ConfiguredFeature<?, ?> register(ConfiguredFeature<?, ?> configuredFeature,
