@@ -3,20 +3,15 @@ package net.tutorialsbykaupenjoe.tutorialmod.world.features.tree;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModConfiguredFeatures;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class ModSaplingGenerator extends SaplingGenerator {
-    private final ConfiguredFeature<TreeFeatureConfig, ?> feature;
-
-    public ModSaplingGenerator(ConfiguredFeature<?, ?> feature) {
-        this.feature = (ConfiguredFeature<TreeFeatureConfig, ?>) feature;
-    }
-
+public class RedwoodSaplingGenerator extends SaplingGenerator {
     @Nullable
     @Override
     protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bees) {
-        return feature;
+        return ModConfiguredFeatures.REDWOOD_TREE;
     }
 }
