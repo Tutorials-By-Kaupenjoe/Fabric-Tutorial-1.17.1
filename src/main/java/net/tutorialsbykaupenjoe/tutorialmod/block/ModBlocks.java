@@ -7,15 +7,12 @@ import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
 import net.tutorialsbykaupenjoe.tutorialmod.block.custom.*;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItemGroup;
-import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModConfiguredFeatures;
-import net.tutorialsbykaupenjoe.tutorialmod.world.features.tree.ModSaplingGenerator;
+import net.tutorialsbykaupenjoe.tutorialmod.world.features.tree.RedwoodSaplingGenerator;
 
 public class ModBlocks {
 
@@ -100,8 +97,9 @@ public class ModBlocks {
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
 
     public static final Block REDWOOD_SAPLING = registerBlock("redwood_sapling",
-            new ModSaplingBlock(new ModSaplingGenerator(ModConfiguredFeatures.REDWOOD_TREE),
+            new ModSaplingBlock(new RedwoodSaplingGenerator(),
                     FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
+
 
 
 
