@@ -14,6 +14,8 @@ import net.minecraft.util.registry.Registry;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
 import net.tutorialsbykaupenjoe.tutorialmod.block.custom.*;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItemGroup;
+import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModConfiguredFeatures;
+import net.tutorialsbykaupenjoe.tutorialmod.world.features.tree.ModSaplingGenerator;
 
 public class ModBlocks {
 
@@ -93,6 +95,13 @@ public class ModBlocks {
 
     public static final Block REDWOOD_PLANKS = registerBlock("redwood_planks",
             new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
+
+    public static final Block REDWOOD_LEAVES = registerBlock("redwood_leaves",
+            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
+
+    public static final Block REDWOOD_SAPLING = registerBlock("redwood_sapling",
+            new ModSaplingBlock(new ModSaplingGenerator(ModConfiguredFeatures.REDWOOD_TREE),
+                    FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
 
 
 

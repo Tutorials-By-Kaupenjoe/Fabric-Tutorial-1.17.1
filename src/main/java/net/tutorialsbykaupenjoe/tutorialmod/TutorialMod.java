@@ -11,6 +11,8 @@ import net.tutorialsbykaupenjoe.tutorialmod.util.ModCommandRegister;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModEventsRegister;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModLootTableModifiers;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModRenderHelper;
+import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModConfiguredFeatures;
+import net.tutorialsbykaupenjoe.tutorialmod.world.gen.ModWorldGen;
 
 public class TutorialMod implements ModInitializer {
 
@@ -22,6 +24,8 @@ public class TutorialMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		ModConfigs.registerConfigs();
+
+		ModConfiguredFeatures.registerConfiguredFeatures();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
@@ -38,6 +42,8 @@ public class TutorialMod implements ModInitializer {
 		ModSounds.registerSounds();
 
 		ModEnchantments.registerModEnchantments();
+
+		ModWorldGen.generateModWorldGen();
 
 		System.out.println("Hello Fabric world!");
 	}
