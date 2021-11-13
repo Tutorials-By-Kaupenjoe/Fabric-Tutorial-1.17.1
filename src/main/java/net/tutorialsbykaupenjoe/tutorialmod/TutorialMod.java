@@ -27,6 +27,8 @@ public class TutorialMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		ModRegistries.registerModFuels();
+		ModRegistries.registerStrippables();
+
 		ModRenderHelper.setRenderLayers();
 
 		ModCommandRegister.registerCommands();

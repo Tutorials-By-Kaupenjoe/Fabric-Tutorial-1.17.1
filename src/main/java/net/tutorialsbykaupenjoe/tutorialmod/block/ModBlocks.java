@@ -81,6 +81,20 @@ public class ModBlocks {
                     FabricBlockSettings.copy(Blocks.DANDELION).nonOpaque().noCollision()));
 
 
+    public static final Block REDWOOD_LOG = registerBlock("redwood_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)));
+    public static final Block REDWOOD_WOOD = registerBlock("redwood_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
+
+    public static final Block STRIPPED_REDWOOD_LOG = registerBlock("stripped_redwood_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)));
+    public static final Block STRIPPED_REDWOOD_WOOD = registerBlock("stripped_redwood_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final Block REDWOOD_PLANKS = registerBlock("redwood_planks",
+            new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
+
+
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block){

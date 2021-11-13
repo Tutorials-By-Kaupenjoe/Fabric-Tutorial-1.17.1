@@ -31,6 +31,11 @@
   "block.tutorialmod.dice_block": "Dice Block",
   "block.tutorialmod.pepper_plant": "Pepper Plant",
   "block.tutorialmod.bluebells": "Bluebells",
+  "block.tutorialmod.redwood_log": "Redwood Log",
+  "block.tutorialmod.redwood_planks": "Redwood Planks",
+  "block.tutorialmod.redwood_wood": "Redwood Wood",
+  "block.tutorialmod.stripped_redwood_log": "Stripped Redwood Log",
+  "block.tutorialmod.stripped_redwood_wood": "Stripped Redwood Wood",
 
   "itemGroup.tutorialmod.ruby": "Ruby Mod",
 
