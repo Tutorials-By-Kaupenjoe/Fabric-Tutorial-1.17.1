@@ -3,6 +3,7 @@ package net.tutorialsbykaupenjoe.tutorialmod;
 import net.fabricmc.api.ModInitializer;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 import net.tutorialsbykaupenjoe.tutorialmod.config.ModConfigs;
+import net.tutorialsbykaupenjoe.tutorialmod.enchantments.ModEnchantments;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
 import net.tutorialsbykaupenjoe.tutorialmod.registries.ModRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.sounds.ModSounds;
@@ -33,6 +34,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModLootTableModifiers.modifyLootTables();
 		ModSounds.registerSounds();
+
+		ModEnchantments.registerModEnchantments();
 
 		System.out.println("Hello Fabric world!");
 	}

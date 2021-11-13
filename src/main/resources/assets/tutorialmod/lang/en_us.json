@@ -35,5 +35,7 @@
   "itemGroup.tutorialmod.ruby": "Ruby Mod",
 
   "tooltip.tutorialmod.dowsing_rod": "Hold §eSHIFT§r for more Information!",
-  "tooltip.tutorialmod.dowsing_rod_shift": "Click a Block and discover valuables down below!"
+  "tooltip.tutorialmod.dowsing_rod_shift": "Click a Block and discover valuables down below!",
+
+  "enchantment.tutorialmod.lightning_striker": "Lightning Striker"
 }
