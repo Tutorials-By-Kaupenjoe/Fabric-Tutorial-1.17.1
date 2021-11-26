@@ -19,6 +19,9 @@
   "entrypoints": {
     "main": [
       "net.tutorialsbykaupenjoe.tutorialmod.TutorialMod"
+    ],
+    "client": [
+      "net.tutorialsbykaupenjoe.tutorialmod.TutorialClientMod"
     ]
   },
   "mixins": [

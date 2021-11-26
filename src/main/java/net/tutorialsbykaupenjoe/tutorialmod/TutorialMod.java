@@ -33,8 +33,6 @@ public class TutorialMod implements ModInitializer {
 		ModRegistries.registerModFuels();
 		ModRegistries.registerStrippables();
 
-		ModRenderHelper.setRenderLayers();
-
 		ModCommandRegister.registerCommands();
 		ModEventsRegister.registerEvents();
 
