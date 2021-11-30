@@ -15,6 +15,7 @@ import net.tutorialsbykaupenjoe.tutorialmod.util.ModLootTableModifiers;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModRenderHelper;
 import net.tutorialsbykaupenjoe.tutorialmod.world.biome.ModBiomes;
 import net.tutorialsbykaupenjoe.tutorialmod.world.dimension.ModDimensions;
+import net.tutorialsbykaupenjoe.tutorialmod.world.dimension.ModPortals;
 import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModConfiguredFeatures;
 import net.tutorialsbykaupenjoe.tutorialmod.world.gen.ModWorldGen;
 
@@ -51,6 +52,8 @@ public class TutorialMod implements ModInitializer {
 		ModBiomes.registerBiomes();
 		ModWorldGen.generateModWorldGen();
 		ModDimensions.register();
+
+		ModPortals.registerPortals();
 
 		System.out.println("Hello Fabric world!");
 	}
