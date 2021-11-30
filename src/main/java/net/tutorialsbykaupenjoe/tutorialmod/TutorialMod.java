@@ -5,6 +5,7 @@ import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 import net.tutorialsbykaupenjoe.tutorialmod.config.ModConfigs;
 import net.tutorialsbykaupenjoe.tutorialmod.enchantments.ModEnchantments;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
+import net.tutorialsbykaupenjoe.tutorialmod.recipe.ModRecipes;
 import net.tutorialsbykaupenjoe.tutorialmod.registries.ModRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.sounds.ModSounds;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModCommandRegister;
@@ -35,6 +36,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModCommandRegister.registerCommands();
 		ModEventsRegister.registerEvents();
+
+		ModRecipes.register();
 
 		ModLootTableModifiers.modifyLootTables();
 		ModSounds.registerSounds();

@@ -1,0 +1,15 @@
+{
+  "type": "tutorialmod:lightning",
+  "weather": "clear",
+  "ingredients": [
+    {
+      "item": "tutorialmod:ruby"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "output": {
+    "item": "tutorialmod:ruby_hoe"
+  }
+}
