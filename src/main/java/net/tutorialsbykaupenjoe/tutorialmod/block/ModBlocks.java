@@ -101,6 +101,9 @@ public class ModBlocks {
             new ModSaplingBlock(new RedwoodSaplingGenerator(),
                     FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
 
+    public static final Block LIGHTNING_CHANNELER_BLOCK = registerBlock("lightning_channeler",
+            new LightningChannelerBlock(FabricBlockSettings.of(Material.METAL)));
+
 
 
 
