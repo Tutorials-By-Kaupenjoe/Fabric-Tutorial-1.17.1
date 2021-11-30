@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:overworld",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 1441347363,
+    "settings": "minecraft:overworld",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:plains"
+    }
+  },
+  "type": "tutorialmod:kjdim_type"
+}
+

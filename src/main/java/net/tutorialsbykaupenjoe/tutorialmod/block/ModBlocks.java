@@ -70,7 +70,7 @@ public class ModBlocks {
                     .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
 
     public static final Block DICE_BLOCK = registerBlock("dice_block",
-            new Block(FabricBlockSettings.of(Material.STONE).strength(6f)
+            new DiceBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
                     .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
 
     public static final Block PEPPER_PLANT = registerBlockWithoutBlockItem("pepper_plant",
