@@ -15,6 +15,8 @@ import net.minecraft.world.World;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 import net.tutorialsbykaupenjoe.tutorialmod.world.dimension.ModDimensions;
 
+// Teleportation code taken from https://github.com/Dunkmania101/DaylightDimension
+// Distributed under MIT-License - SEE CREDITS.txt for license notice
 public class DiceBlock extends Block {
     public DiceBlock(Settings settings) {
         super(settings);
