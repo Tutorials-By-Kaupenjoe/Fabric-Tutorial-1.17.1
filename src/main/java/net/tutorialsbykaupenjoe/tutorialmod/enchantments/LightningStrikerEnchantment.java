@@ -19,15 +19,7 @@ public class LightningStrikerEnchantment extends Enchantment {
             PlayerEntity player = ((PlayerEntity) user);
             BlockPos position = target.getBlockPos();
 
-            if(level == 1) {
-                EntityType.LIGHTNING_BOLT.spawn(world, null, null, player, position,
-                        SpawnReason.TRIGGERED, true, true);
-            }
-
-            if(level == 2) {
-                EntityType.LIGHTNING_BOLT.spawn(world, null, null, player, position,
-                        SpawnReason.TRIGGERED, true, true);
-
+            for (int i = 0; i < level; i++) {
                 EntityType.LIGHTNING_BOLT.spawn(world, null, null, player, position,
                         SpawnReason.TRIGGERED, true, true);
             }
