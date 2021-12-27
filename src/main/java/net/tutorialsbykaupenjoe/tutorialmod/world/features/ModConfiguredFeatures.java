@@ -4,68 +4,53 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.HeightmapDecoratorConfig;
-import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
-import net.minecraft.world.gen.placer.SimpleBlockPlacer;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 
+import java.util.List;
+
 public class ModConfiguredFeatures {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_TREE_KEY = registerKey("redwood_spawn");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BLUEBELLS_KEY = registerKey("bluebells");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_ORE_KEY = registerKey("ruby_ore");
 
     public static final ConfiguredFeature<TreeFeatureConfig, ?> REDWOOD_TREE = register("redwood",
             Feature.TREE.configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(ModBlocks.REDWOOD_LOG.getDefaultState()),
+                    BlockStateProvider.of(ModBlocks.REDWOOD_LOG),
                     new StraightTrunkPlacer(8, 4, 3),
-                    new SimpleBlockStateProvider(ModBlocks.REDWOOD_LEAVES.getDefaultState()),
-                    new SimpleBlockStateProvider(ModBlocks.REDWOOD_SAPLING.getDefaultState()),
+                    BlockStateProvider.of(ModBlocks.REDWOOD_LEAVES.getDefaultState()),
                     new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                     new TwoLayersFeatureSize(1, 0, 1)).build()));
 
-    public static final ConfiguredFeature<?, ?> REDWOOD_TREE_SPAWN = register(REDWOOD_TREE
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING))
-                    .spreadHorizontally().applyChance(3)), REDWOOD_TREE_KEY);
-
-    public static final ConfiguredFeature<?, ?> BLUEBELLS_CONFIG = register(Feature.FLOWER.configure(
-            new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(ModBlocks.BLUEBELLS.getDefaultState()),
-                    SimpleBlockPlacer.INSTANCE).tries(64).build())
-            .decorate(Decorator.SPREAD_32_ABOVE.configure(NopeDecoratorConfig.INSTANCE)
-                    .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING))
-                            .spreadHorizontally().repeat(4))), BLUEBELLS_KEY);
-
-    public static final ConfiguredFeature<?, ?> RUBY_ORE = register(Feature.ORE.configure(
-            new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.RUBY_ORE.getDefaultState(), 8))
-            .range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(2), YOffset.fixed(45))))
-            .spreadHorizontally().repeat(6), RUBY_ORE_KEY);
+    public static final ConfiguredFeature<RandomFeatureConfig, ?> REDWOOD_TREE_RANDOM = register("redwood_feature",
+            Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(List.of(new RandomFeatureEntry(
+                    REDWOOD_TREE.withWouldSurviveFilter(ModBlocks.REDWOOD_SAPLING), 0.1f)),
+                    REDWOOD_TREE.withWouldSurviveFilter(ModBlocks.REDWOOD_SAPLING))));
 
 
+    public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> BLUEBELLS =
+            ModConfiguredFeatures.register("bluebells_feature", Feature.FLOWER.configure(
+                    createRandomPatchFeatureConfig(BlockStateProvider.of(ModBlocks.BLUEBELLS), 64)));
 
-    private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-        return RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(TutorialMod.MOD_ID, name));
-    }
+    public static final List<OreFeatureConfig.Target> OVERWORLD_RUBY_ORES = List.of(
+            OreFeatureConfig.createTarget(OreConfiguredFeatures.STONE_ORE_REPLACEABLES, ModBlocks.RUBY_ORE.getDefaultState()),
+            OreFeatureConfig.createTarget(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.RUBY_ORE.getDefaultState()));
 
-    private static ConfiguredFeature<TreeFeatureConfig, ?> register(String name,
-                                                                    ConfiguredFeature<TreeFeatureConfig, ?> configuredFeature) {
+    public static final ConfiguredFeature<?, ?> RUBY_ORE = register("ruby_ore",
+            Feature.ORE.configure(new OreFeatureConfig(OVERWORLD_RUBY_ORES, 9)));
+
+
+
+    public static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
         return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(TutorialMod.MOD_ID, name),
                 configuredFeature);
     }
 
-    private static ConfiguredFeature<?, ?> register(ConfiguredFeature<?, ?> configuredFeature,
-                                                    RegistryKey<ConfiguredFeature<?, ?>> key) {
-        return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, key.getValue(), configuredFeature);
+    private static RandomPatchFeatureConfig createRandomPatchFeatureConfig(BlockStateProvider block, int tries) {
+        return ConfiguredFeatures.createRandomPatchFeatureConfig(tries,
+                Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(block)).withInAirFilter());
     }
 
     public static void registerConfiguredFeatures() {

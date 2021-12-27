@@ -1,8 +1,8 @@
 package net.tutorialsbykaupenjoe.tutorialmod;
 
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.world.biome.Biome;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
+import net.tutorialsbykaupenjoe.tutorialmod.block.entity.ModBlockEntities;
 import net.tutorialsbykaupenjoe.tutorialmod.config.ModConfigs;
 import net.tutorialsbykaupenjoe.tutorialmod.enchantments.ModEnchantments;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
@@ -12,8 +12,6 @@ import net.tutorialsbykaupenjoe.tutorialmod.sounds.ModSounds;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModCommandRegister;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModEventsRegister;
 import net.tutorialsbykaupenjoe.tutorialmod.util.ModLootTableModifiers;
-import net.tutorialsbykaupenjoe.tutorialmod.util.ModRenderHelper;
-import net.tutorialsbykaupenjoe.tutorialmod.world.biome.ModBiomes;
 import net.tutorialsbykaupenjoe.tutorialmod.world.dimension.ModDimensions;
 import net.tutorialsbykaupenjoe.tutorialmod.world.dimension.ModPortals;
 import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModConfiguredFeatures;
@@ -31,10 +29,11 @@ public class TutorialMod implements ModInitializer {
 		ModConfigs.registerConfigs();
 
 		ModConfiguredFeatures.registerConfiguredFeatures();
-		ModBiomes.initBiomes();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+		ModBlockEntities.registerBlockEntities();
 
 		ModRegistries.registerModFuels();
 		ModRegistries.registerStrippables();
@@ -49,7 +48,6 @@ public class TutorialMod implements ModInitializer {
 
 		ModEnchantments.registerModEnchantments();
 
-		ModBiomes.registerBiomes();
 		ModWorldGen.generateModWorldGen();
 		ModDimensions.register();
 

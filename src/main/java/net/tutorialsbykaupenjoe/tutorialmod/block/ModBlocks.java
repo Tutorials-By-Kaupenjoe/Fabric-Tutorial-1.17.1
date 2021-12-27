@@ -18,60 +18,51 @@ import net.tutorialsbykaupenjoe.tutorialmod.world.features.tree.RedwoodSaplingGe
 public class ModBlocks {
 
     public static final Block RUBY_ORE = registerBlock("ruby_ore",
-            new Block(FabricBlockSettings.of(Material.STONE).strength(4.0f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+            new Block(FabricBlockSettings.of(Material.STONE).strength(4.0f).requiresTool()));
 
     public static final Block RUBY_BLOCK = registerBlock("ruby_block",
-            new Block(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+            new Block(FabricBlockSettings.of(Material.STONE).strength(6f).requiresTool()));
 
     public static final Block STATUS_BLOCK = registerBlock("status_block",
-            new StatusBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+            new StatusBlock(FabricBlockSettings.of(Material.STONE).strength(6f).requiresTool()));
 
     public static final Block RUBY_STAIRS = registerBlock("ruby_stairs",
             new ModStairsBlock(ModBlocks.RUBY_BLOCK.getDefaultState(),
-                    FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+                    FabricBlockSettings.of(Material.STONE).strength(6f).requiresTool()));
 
     public static final Block RUBY_SLAB = registerBlock("ruby_slab",
-            new SlabBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+            new SlabBlock(FabricBlockSettings.of(Material.STONE).strength(6f).requiresTool()));
 
     public static final Block RUBY_FENCE = registerBlock("ruby_fence",
-            new FenceBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+            new FenceBlock(FabricBlockSettings.of(Material.STONE).strength(6f).requiresTool()));
 
     public static final Block RUBY_FENCE_GATE = registerBlock("ruby_fence_gate",
-            new FenceGateBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+            new FenceGateBlock(FabricBlockSettings.of(Material.STONE).strength(6f).requiresTool()));
 
 
     public static final Block RUBY_BUTTON = registerBlock("ruby_button",
-            new ModStoneButtonBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+            new ModStoneButtonBlock(FabricBlockSettings.of(Material.STONE).strength(6f).requiresTool()));
 
     public static final Block RUBY_PRESSURE_PLATE = registerBlock("ruby_pressure_plate",
             new ModPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
-                    FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+                    FabricBlockSettings.of(Material.STONE).strength(6f).requiresTool()));
 
 
     public static final Block RUBY_DOOR = registerBlock("ruby_door",
             new ModDoorBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().nonOpaque()));
+                    .requiresTool().nonOpaque()));
 
     public static final Block RUBY_TRAPDOOR = registerBlock("ruby_trapdoor",
             new ModTrapdoorBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().nonOpaque()));
+                    .requiresTool().nonOpaque()));
 
     public static final Block TEST_BLOCK = registerBlock("test_block",
             new TestBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+                    .requiresTool()));
 
     public static final Block DICE_BLOCK = registerBlock("dice_block",
             new DiceBlock(FabricBlockSettings.of(Material.STONE).strength(6f)
-                    .breakByTool(FabricToolTags.PICKAXES, 2).requiresTool()));
+                    .requiresTool()));
 
     public static final Block PEPPER_PLANT = registerBlockWithoutBlockItem("pepper_plant",
             new PepperPlantBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque().noCollision()));

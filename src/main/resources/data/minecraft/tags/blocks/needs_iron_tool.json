@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "tutorialmod:ruby_ore",
+    "tutorialmod:ruby_block",
+    "tutorialmod:status_block",
+    "tutorialmod:ruby_stairs",
+    "tutorialmod:ruby_slab",
+    "tutorialmod:ruby_fence",
+    "tutorialmod:ruby_fence_gate",
+    "tutorialmod:ruby_button",
+    "tutorialmod:ruby_pressure_plate",
+    "tutorialmod:test_block",
+    "tutorialmod:dice_block"
+  ]
+}

@@ -85,9 +85,9 @@ public class LightningChannelerBlockEntity extends BlockEntity implements NamedS
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         Inventories.writeNbt(nbt, inventory);
-        return super.writeNbt(nbt);
+        super.writeNbt(nbt);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, LightningChannelerBlockEntity entity) {
